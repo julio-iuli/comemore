@@ -1,0 +1,56 @@
+<html lang="pt-BR">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Cadastrar Tema</title>
+
+	</head>
+	<body>
+			<form accept-charset="utf-8" action='enviartema.php' method='GET'>
+				<h1> Cadastrar Tema</h1>
+					<table>
+						<tr>
+						<td>Nome do Tema:</td>
+						<td><input type='text' name='ds_tema' maxlength='80' size='38' /></td>		
+						</tr>
+						<tr>
+						<td>Descrição:</td>
+						<td><textarea rows="10" cols="40" name='ds_descricao'> </textarea> </td>	
+						</tr>
+						</tr>
+						<td>Gênero:</td>
+						<td>
+							<input type='radio' name='ds_genero' value='M'>Masculino     
+							<input type='radio' name='ds_genero'value='F'>Feminino     
+							<input type='radio' name='ds_genero'value='U'>Unissex
+						</td>
+						</tr>
+						<td>Data:</td>
+						<td><input type="date" name="ds_data_compra"></td>
+						</tr>
+						<td>Preço:</td>
+						<td><input type="number" name="ds_preco" maxlength='12' size='16'></td>
+						</tr>
+						<td>Adicionar imagem: </td>
+						<td><input type="file" name="img_tema" value='Selecionar imagem'></td>
+						</tr>
+						</tr>
+							<td>Categoria:</td>
+								<td>
+									<select name='tb_categoria_id_categoria'>
+										<option value='1'>Heróis</option>
+										<option value='2'>Princesas</option>
+										<option value='3'>Animes</option>
+										<option value='4'>Video Game</option>
+									</select>
+								</td>
+						</tr>						
+					</table><br>
+					<input type='submit' value='Salvar'/>
+					<a href='principaltema.html'><input type='button' value='Voltar'/><a>
+			</form>
+			
+			
+	
+	</body>
+	
+</html>

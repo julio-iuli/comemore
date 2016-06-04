@@ -1,13 +1,14 @@
+<?php header("Content-type: text/html; charset=utf-8") ?>
 <html>
 	<head>
-		<meta charset="UTF-8"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Cadastrar Cliente</title>
 
 	</head>
 	
 	
 	<body>
-			<form action='enviartema.php' method='GET'>
+			<form accept-charset="utf-8" action='enviarcliente.php' method='GET'>
 				<h2> Cadastrar Cliente</h2>
 					
 					Nome:
@@ -36,37 +37,9 @@
 						<input type='date' name='ds_data_nasc' maxlength='80' size='38' /><br><br>
 					
 					<h4>Endereço</h4>
-					//link com tb_uf
-						<select name="UF"> 
-							<option value="">--</option>	
-							<option value="ac">AC</option> 
-							<option value="al">AL</option> 
-							<option value="am">AM</option> 
-							<option value="ap">AP</option> 
-							<option value="ba">BA</option> 
-							<option value="ce">CE</option> 
-							<option value="df">DF</option> 
-							<option value="es">ES</option> 
-							<option value="go">GO</option> 
-							<option value="ma">MA</option> 
-							<option value="mt">MT</option> 
-							<option value="ms">MS</option> 
-							<option value="mg">MG</option> 
-							<option value="pa">PA</option> 
-							<option value="pb">PB</option> 
-							<option value="pr">PR</option> 
-							<option value="pe">PE</option> 
-							<option value="pi">PI</option> 
-							<option value="rj">RJ</option> 
-							<option value="rn">RN</option> 
-							<option value="ro">RO</option> 
-							<option value="rs">RS</option> 
-							<option value="rr">RR</option> 
-							<option value="sc">SC</option> 
-							<option value="se">SE</option> 
-							<option value="sp">SP</option> 
-							<option value="to">TO</option> 
-						</select>
+					
+					<?php include 'endereco.php'; ?>
+
 					
 					<h4>Recomendações</h4>
 					Nome:

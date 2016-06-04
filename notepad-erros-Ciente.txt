@@ -1,0 +1,17 @@
+Notice: Undefined index: ds_cliente in C:\xampp\htdocs\comemore2_23-05\funcionario\enviarcliente.php on line 5
+
+Notice: Undefined index: ds_rg in C:\xampp\htdocs\comemore2_23-05\funcionario\enviarcliente.php on line 9
+
+Notice: Undefined index: ds_emissor in C:\xampp\htdocs\comemore2_23-05\funcionario\enviarcliente.php on line 10
+
+Notice: Undefined index: ds_pf_pj in C:\xampp\htdocs\comemore2_23-05\funcionario\enviarcliente.php on line 13
+
+Notice: Undefined variable: REQUEST in C:\xampp\htdocs\comemore2_23-05\funcionario\enviarcliente.php on line 22
+
+Notice: Undefined variable: REQUEST in C:\xampp\htdocs\comemore2_23-05\funcionario\enviarcliente.php on line 24
+
+Notice: Undefined variable: REQUEST in C:\xampp\htdocs\comemore2_23-05\funcionario\enviarcliente.php on line 26
+
+Notice: Undefined index: ds_cep in C:\xampp\htdocs\comemore2_23-05\funcionario\enviarcliente.php on line 27
+
+Notice: Undefined index: ds_complemento in C:\xampp\htdocs\comemore2_23-05\funcionario\enviarcliente.php on line 29

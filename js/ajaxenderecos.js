@@ -55,15 +55,11 @@
 				function carregarCep(id_logradouro){
                     var ajax;
                     ajax = new XMLHttpRequest();
-                    ajax.onreadystatechange = function(){
+                    ajax.onreadystatechange = function(){						
                         if (ajax.readyState == 4 && ajax.status == 200){
-							alert(ajax.responseText);
 							$("#inputcep").attr("value", ajax.responseText).prop("disabled", true);
-                        } else {
-							$("#inputcep").attr("value", ajax.responseText).prop("disabled", false);
-						}
+						}							
                     };
-                    alert(id_logradouro);
                     ajax.open("GET", "servidor.php?id_logradouro="+id_logradouro, true);
                     ajax.send();
                 }

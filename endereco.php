@@ -39,11 +39,11 @@ echo '
 		<label>CEP</label><br>
         <input id="inputcep" type="number" name="ds_cep" /><br>
 		
+		
     </fieldset>
 
 </div>
 
 ';
-//         <label>CEP</label><br>
-//        <input id="inputcep" type="number" name="ds_cep" max="999999999" /><br>
+
 ?>

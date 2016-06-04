@@ -8,7 +8,7 @@
 	
 	
 	<body>
-			<form accept-charset="utf-8" action='enviartema.php' method='GET'>
+			<form accept-charset="utf-8" action='enviarcliente.php' method='GET'>
 				<h2> Cadastrar Cliente</h2>
 					
 					Nome:

@@ -43,11 +43,15 @@
                     
                     $("#inputlogradouro").autocomplete({
                             change: function(event, ui){
-                                var id_logradouro = ui.item.value;
+                                var id_logradouro = ui.item.value;								
                                 $("#hiddenlogradouro").val(id_logradouro);
 								carregarCep(id_logradouro);
                             }
                         
-                    });
+                    }).focus( function(){
+						$("#inputcep").attr("value", "").prop("disabled", false);
+					});
+					
+
                      
                 });

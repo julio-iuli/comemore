@@ -38,7 +38,7 @@
         return json_encode($bairros);
     }
     
-        function getLogradourosJson($id_bairro) {
+    function getLogradourosJson($id_bairro) {
         include 'conectacomemore.php';
         $stmt = $con->prepare('
         SELECT ds_logradouro as label, id_logradouro as value 
@@ -50,6 +50,18 @@
             $logradouros[] = $row;
         }
         return json_encode($logradouros);
-    }
+	}
+	
+	function getCEP($id_logradouro) {
+		include 'conectacomemore.php';
+        $stmt = $con->prepare('
+        SELECT ds_cep
+        FROM tb_logradouro
+        WHERE id_logradouro = :id_logradouro');
+        $stmt->execute(array(':id_logradouro' => $id_logradouro));
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+		$ds_cep = $row['ds_cep'];
+		return $ds_cep;
+	}
 
 ?>

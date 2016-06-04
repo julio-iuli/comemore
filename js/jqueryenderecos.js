@@ -45,6 +45,7 @@
                             change: function(event, ui){
                                 var id_logradouro = ui.item.value;
                                 $("#hiddenlogradouro").val(id_logradouro);
+								carregarCep(id_logradouro);
                             }
                         
                     });

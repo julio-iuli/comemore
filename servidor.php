@@ -18,4 +18,8 @@
     if(@$_REQUEST['id_bairro']){
         echo getLogradourosJson($_REQUEST['id_bairro']);
     }
+	
+	if(@$_REQUEST['id_logradouro']){
+		echo getCep($_REQUEST['id_logradouro']);
+    }
 ?>

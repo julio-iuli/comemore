@@ -35,9 +35,10 @@ echo '
         
         <label>Complemento</label><br>
         <input id="inputcomplemento" type="text" name="ds_end_complemento" required /><br>
-
-
-                
+		
+		<label>CEP</label><br>
+        <input id="inputcep" type="number" name="ds_cep" /><br>
+		
     </fieldset>
 
 </div>

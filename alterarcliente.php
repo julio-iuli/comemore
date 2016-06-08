@@ -140,7 +140,7 @@ function tipoPessoaSel() {
 					  </div>
 						<br>
 					<label for="rg">RG:</label>
-					<input type='text' name='ds_rg' maxlength='7' size='38' /><br><br>
+					<input id="ds_rg" type='text' name='ds_rg' maxlength='7' size='38' /><br><br>
 					<label for="emissor_rg">Orgão Emissor</label>
 					<input type='text' name='ds_emissor_rg' maxlength='2' size='38' /><br><br>
  

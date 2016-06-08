@@ -9,6 +9,7 @@ function carregarDadosCliente(id_cliente){
 			$("#ddd_cel").val(cliente.ds_ddd_cel);
 			$("#res").val(cliente.ds_telefone_res);
 			$("#cel").val(cliente.ds_telefone_cel);
+			$("#ds_rg").val(cliente.ds_rg);
 			
 		}
 	};

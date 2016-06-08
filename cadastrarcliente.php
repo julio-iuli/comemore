@@ -4,7 +4,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Cadastrar Cliente</title>
 <script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/jquery.maskedinput.js"></script>
+<script type="text/javascript" src="js/jquery.mask.js"></script>
 <script>
 
 $(document).ready(function(){
@@ -15,6 +15,9 @@ $(document).ready(function(){
 		$("input.cel").mask("99999-9999");
         $("input.cpf").mask("999.999.999-99");
 		$("input.cnpj").mask("99.999.999/9999-99");
+	$("form").submit(function(){
+		$(":input").unmask();
+	});
 });
 
 function apaga_CPF() {	
@@ -68,7 +71,7 @@ function tipoPessoaSel() {
   <div id="pf">
     <div>
       <label for="cpf">CPF</label>
-      <input id="cpf" class="cpf" type="text" name="ds_cpf" size="20" maxlength="11" required />
+      <input id="cpf" class="cpf" type="text" name="ds_cpf" size="20" maxlength="14" required />
     </div>
   </div>
 
@@ -87,11 +90,11 @@ function tipoPessoaSel() {
  
  
                     	Telefone Residencial:
-						<input id="ddd" class="ddd" type='text' name='ds_ddd_res' maxlength='2' size='2' />
+						<input id="ddd1" class="ddd" type='text' name='ds_ddd_res' size='2'/>
 						<input id="tel" class="tel" type='text' name='ds_telefone_res' maxlength='9' size='10' /><br><br>
 					
 					Telefone Celular:
-						<input id="ddd" class="ddd" type='text' name='ds_ddd_cel' maxlength='2' size='2' />
+						<input id="ddd2" class="ddd" type='text' name='ds_ddd_cel' size='2'/>
 						<input id="cel" class="cel" type='text' name='ds_telefone_cel' maxlength='9' size='10' /><br><br>						
 													
 											

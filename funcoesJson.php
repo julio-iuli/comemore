@@ -3,7 +3,7 @@
 	header('Content-Type: text/html; charset=utf-8');
 
     function getEstadosJson() {
-        include "conectacomemore.php";
+       include "conectacomemore.php";
        $res = $con->query("SELECT ds_estado as label, id_uf as value FROM tb_uf;");
        $estados = array();
        while($row = $res->fetch(PDO::FETCH_ASSOC)){
@@ -20,7 +20,8 @@
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             $cidades[] = $row;
         }
-        return json_encode($cidades);
+        
+		return json_encode($cidades);
     }
     
     function getBairrosJson($id_cidade) {
@@ -63,5 +64,32 @@
 		$ds_cep = $row['ds_cep'];
 		return $ds_cep;
 	}
+	
+	function getClientesJson() {
+		include "conectacomemore.php";
+		$res = $con->query("SELECT ds_cliente as label, id_cliente as value FROM tb_cliente;");
+		$clientes = array();
+		while($row = $res->fetch(PDO::FETCH_ASSOC)){
+			$clientes[] = $row;
+		}
+       return json_encode($clientes);
+	}
+	
+	function getDadosClienteJson($id_cliente) {
+        include 'conectacomemore.php';
+        $stmt = $con->prepare('
+        SELECT * 
+        FROM tb_cliente
+        WHERE id_cliente = :id_cliente');
+        $stmt->execute(array(':id_cliente' => $id_cliente));
+        $dadosCliente = array();
+        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+            $dadosCliente[] = $row;
+        }
+        $json = json_encode($dadosCliente);
+		echo substr($json, 1, strlen($json) - 2);
+		
+	}
+
 
 ?>

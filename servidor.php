@@ -22,4 +22,13 @@
 	if(@$_REQUEST['id_logradouro']){
 		echo getCep($_REQUEST['id_logradouro']);
     }
+	
+	if(@$_REQUEST['clientes'] == 'true'){
+		echo getClientesJson();
+    }
+	
+	if(@$_REQUEST['cliente']){
+		echo getDadosClienteJson($_REQUEST['cliente']);
+	}
+	
 ?>

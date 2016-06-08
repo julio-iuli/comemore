@@ -3,14 +3,8 @@
 header('Content-Type: text/html; charset=utf-8');
 
 # Conecta ao banco de dados
-$conexao = mysql_connect('10.0.0.102','root','123456');
-$banco = mysql_select_db('comemore');
-
 # Aqui está o segredo
-mysql_query("SET NAMES 'utf8'");
-mysql_query('SET character_set_connection=utf8');
-mysql_query('SET character_set_client=utf8');
-mysql_query('SET character_set_results=utf8');
+
 
 include "conectacomemore.php";
 

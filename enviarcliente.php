@@ -30,12 +30,6 @@
 		//Situação 2 : bairro novo (e, consequentemente, logradouro, cep) => id_bairro vazio
 		//Situação 3 : logadouro novo (e, consequentemente, cep) => id_logradouro vazio
 		//Situação 4 : apenas complemento novo.
-
-		if($id_logradouro != "") {echo "situação 4<br>";}
-		else if ($id_bairro != "") {echo "situação 3";}
-		else if ($id_cidade != "") {echo "situação 2";}
-		else if ($id_cidade == "") {echo "situação 1";}
-		
 		
 		if($id_logradouro != ""){ // situação 4: há um id_logradouro
 			try {
@@ -89,7 +83,7 @@
 					':id_logradouro' => $id_logradouro
 				));
 				
-				echo "situação 1: final do try: veja se salvou no banco";				
+				echo "situação 4: final do try: veja se salvou no banco";				
 			} catch(PDOException $e) {
 				echo $e;
 			}
@@ -283,7 +277,7 @@
 					':ds_recomendacao_nome' => $ds_recomendacao_nome, 
 					':ds_recomendacao_data_nasc' => $ds_recomendacao_data_nasc
 				));
-				echo "situação 4: final do try: veja se salvou no banco";			
+				echo "situação 1: final do try: veja se salvou no banco";			
 			} catch(PDOException $e) {
 				echo $e;
 			}

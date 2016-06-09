@@ -4,12 +4,29 @@ function carregarDadosCliente(id_cliente){
 	ajax.onreadystatechange = function(){
 		if (ajax.readyState == 4 && ajax.status == 200){
 			var cliente = JSON.parse(ajax.responseText);
+			
 			$("#ds_cliente").val(cliente.ds_cliente);
 			$("#ddd_res").val(cliente.ds_ddd_res);
 			$("#ddd_cel").val(cliente.ds_ddd_cel);
-			$("#res").val(cliente.ds_telefone_res);
-			$("#cel").val(cliente.ds_telefone_cel);
+			$("#ds_telefone_res").val(cliente.ds_telefone_res);
+			$("#ds_telefone_cel").val(cliente.ds_telefone_cel);
 			$("#ds_rg").val(cliente.ds_rg);
+			$("#ds_cpf").val(cliente.ds_cpf);
+			$("#ds_emissor_rg").val(cliente.ds_emissor_rg);
+			$("#ds_email").val(cliente.ds_email);
+			$("#ds_data_nasc").val(cliente.ds_data_nasc);
+			$("#ds_recomendacao_nome").val(cliente.ds_recomendacao_nome);
+			$("#ds_recomendacao_data_nasc").val(cliente.ds_recomendacao_data_nasc);
+			//TESTANDO PF-PJ
+			if(cliente.ds_pf_pj == 0){
+				$("#opt_pj").attr("checked", true);
+			}
+			//ENDEREÇO => TRATAR
+			$("#ds_end_complemento").val(cliente.ds_end_complemento);
+			$("#ds_tb_logradouro_id_logradouro").val(cliente.ds_tb_logradouro_id_logradouro);
+			
+			document.cookie = "";
+			document.cookie = ajax.responseText;
 			
 		}
 	};

@@ -46,20 +46,16 @@ $(document).ready(function(){
 			var str = $("#formbusca").serialize();
 			$("#teste").text(str);
 			var id_cliente = $("#hidden_id_cliente").val();
-			var cliente = carregarDadosCliente(id_cliente);
+			alert(id_cliente);
+			carregarDadosCliente(id_cliente);
+			
 			
 	});
 	//mudança do evento submit dos dados
 	$("#formdados").submit(function(event){
 		event.preventDefault();
 		if(confirm('confirma alteração?')){
-			var cliente = JSON.parse(document.cookie);
-			$("input").each(function(){
-				if($(this).val() == cliente[$(this).attr('name')]){
-					$(this).prop("disabled", true);
-				}
-			});
-			
+			$("input").unmask();
 			var str = $("#formdados").serialize();
 			$("#teste").text(str);
 		}

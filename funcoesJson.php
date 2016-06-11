@@ -2,7 +2,9 @@
 
 	header('Content-Type: text/html; charset=utf-8');
 
-    function getEstadosJson() {
+
+	
+	function getEstadosJson() {
        include "conectacomemore.php";
        $res = $con->query("SELECT ds_estado as label, id_uf as value FROM tb_uf;");
        $estados = array();
@@ -91,5 +93,26 @@
 		
 	}
 
+	function getEnderecoPorIdLogradouro($id_logradouro) {
+		include "conectacomemore.php";
+		$stmt = $con->prepare('
+		SELECT 	tb_uf.ds_estado, tb_uf.id_uf,
+				tb_cidade.ds_cidade, tb_cidade.id_cidade,
+				tb_bairro.ds_bairro, tb_bairro.id_bairro,
+				tb_logradouro.ds_logradouro, tb_logradouro.id_logradouro, tb_logradouro.ds_cep
+		FROM 	tb_uf
+		INNER JOIN tb_cidade ON tb_uf.id_uf = tb_cidade.tb_uf_id_uf
+		INNER JOIN tb_bairro ON tb_cidade.id_cidade = tb_bairro.tb_cidade_id_cidade
+		INNER JOIN tb_logradouro ON tb_bairro.id_bairro = tb_logradouro.tb_bairro_id_bairro
+		WHERE tb_logradouro.id_logradouro = :id_logradouro;
+		');
+		$stmt->execute(array(':id_logradouro' => $id_logradouro));
+		$endereco = array();
+		while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+            $endereco[] = $row;
+        }
+        $json = json_encode($endereco);
+		echo substr($json, 1, strlen($json) - 2);
+	}
 
 ?>

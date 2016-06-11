@@ -31,4 +31,9 @@
 		echo getDadosClienteJson($_REQUEST['cliente']);
 	}
 	
+	if(@$_REQUEST['cliente_id_logradouro']){
+		echo getEnderecoPorIdLogradouro($_REQUEST['cliente_id_logradouro']);
+	}
+	
+	
 ?>

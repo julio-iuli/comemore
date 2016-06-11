@@ -4,7 +4,7 @@ function carregarDadosCliente(id_cliente){
 	ajax.onreadystatechange = function(){
 		if (ajax.readyState == 4 && ajax.status == 200){
 			var cliente = JSON.parse(ajax.responseText);
-			
+						
 			$("#ds_cliente").val(cliente.ds_cliente);
 			$("#ddd_res").val(cliente.ds_ddd_res);
 			$("#ddd_cel").val(cliente.ds_ddd_cel);
@@ -23,7 +23,12 @@ function carregarDadosCliente(id_cliente){
 			}
 			//ENDEREÇO => TRATAR
 			$("#ds_end_complemento").val(cliente.ds_end_complemento);
-			$("#ds_tb_logradouro_id_logradouro").val(cliente.ds_tb_logradouro_id_logradouro);
+			$("#ds_tb_logradouro_id_logradouro").val(cliente.tb_logradouro_id_logradouro);
+			var buscaEndereco = "servidor.php?cliente_id_logradouro=" + cliente.tb_logradouro_id_logradouro;
+			alert(buscaEndereco);
+			$.get(buscaEndereco, function(data){
+				alert(data);
+			});
 			
 			document.cookie = "";
 			document.cookie = ajax.responseText;

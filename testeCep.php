@@ -1,4 +1,4 @@
 <?php
 	include 'funcoesJson.php';
-	echo getCep(11);
+	echo getEnderecoPorIdLogradouro(1);
 ?>

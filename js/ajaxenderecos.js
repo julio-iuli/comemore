@@ -17,17 +17,26 @@ function carregarDadosCliente(id_cliente){
 			$("#ds_data_nasc").val(cliente.ds_data_nasc);
 			$("#ds_recomendacao_nome").val(cliente.ds_recomendacao_nome);
 			$("#ds_recomendacao_data_nasc").val(cliente.ds_recomendacao_data_nasc);
+			
 			//TESTANDO PF-PJ
 			if(cliente.ds_pf_pj == 0){
 				$("#opt_pj").attr("checked", true);
 			}
-			//ENDEREÇO => TRATAR
-			$("#ds_end_complemento").val(cliente.ds_end_complemento);
-			$("#ds_tb_logradouro_id_logradouro").val(cliente.tb_logradouro_id_logradouro);
+			//ENDEREÇO => TRATAMENTO
+			$("#inputcomplemento").val(cliente.ds_end_complemento);
+			
 			var buscaEndereco = "servidor.php?cliente_id_logradouro=" + cliente.tb_logradouro_id_logradouro;
-			alert(buscaEndereco);
 			$.get(buscaEndereco, function(data){
-				alert(data);
+				var endereco = JSON.parse(data);
+				$("#inputestado").val(endereco.ds_estado);
+				$("#hiddenestado").val(endereco.id_uf);
+				$("#inputcidade").val(endereco.ds_cidade);
+				$("#hiddencidade").val(endereco.id_cidade);
+				$("#inputbairro").val(endereco.ds_bairro);
+				$("#hiddenbairro").val(endereco.id_bairro);
+				$("#inputlogradouro").val(endereco.ds_logradouro);
+				$("#hiddenlogradouro").val(endereco.id_logradouro);
+				$("#inputcep").val(endereco.ds_cep);
 			});
 			
 			document.cookie = "";

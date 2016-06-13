@@ -35,5 +35,11 @@
 		echo getEnderecoPorIdLogradouro($_REQUEST['cliente_id_logradouro']);
 	}
 	
+	if(@$_REQUEST['cliente_ds_cep']){
+		echo getEnderecoPorDsCep($_REQUEST['cliente_ds_cep']);
+	}
 	
+	if(@$_REQUEST['excluir_id_cliente']){
+		echo excluirCliente($_REQUEST['excluir_id_cliente']);
+	}
 ?>

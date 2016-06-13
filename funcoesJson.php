@@ -115,4 +115,41 @@
 		echo substr($json, 1, strlen($json) - 2);
 	}
 
+	function getEnderecoPorDsCep($ds_cep) {
+		include "conectacomemore.php";
+		$stmt = $con->prepare('
+		SELECT 	tb_uf.ds_estado, tb_uf.id_uf,
+				tb_cidade.ds_cidade, tb_cidade.id_cidade,
+				tb_bairro.ds_bairro, tb_bairro.id_bairro,
+				tb_logradouro.ds_logradouro, tb_logradouro.id_logradouro, tb_logradouro.ds_cep
+		FROM 	tb_uf
+		INNER JOIN tb_cidade ON tb_uf.id_uf = tb_cidade.tb_uf_id_uf
+		INNER JOIN tb_bairro ON tb_cidade.id_cidade = tb_bairro.tb_cidade_id_cidade
+		INNER JOIN tb_logradouro ON tb_bairro.id_bairro = tb_logradouro.tb_bairro_id_bairro
+		WHERE tb_logradouro.ds_cep = :ds_cep;
+		');
+		$stmt->execute(array(':ds_cep' => $ds_cep));
+		$endereco = array();
+		while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+            $endereco[] = $row;
+        }
+        $json = json_encode($endereco);
+		echo substr($json, 1, strlen($json) - 2);
+	}
+	
+	function excluirCliente($id_cliente) {
+		try{
+			include "conectacomemore.php";
+			$stmt = $con->prepare('
+				DELETE FROM tb_cliente
+				WHERE id_cliente = :id_cliente;
+			');
+			$stmt->execute(array(':id_cliente' => $id_cliente));
+			$resposta = "true";
+		} catch (PDOException $e) {
+			$resposta = "false";
+		}
+		echo $resposta;
+	}
+	
 ?>

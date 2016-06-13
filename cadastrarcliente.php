@@ -9,7 +9,6 @@
 
 $(document).ready(function(){
 	$("input.data").mask("99/99/9999");
-        $("input.cep").mask("99.999-999");
 		$("input.ddd").mask("(99)");
 		$("input.tel").mask("9999-9999");		
 		$("input.cel").mask("99999-9999");
@@ -56,7 +55,7 @@ function tipoPessoaSel() {
 	
 	<body>
 			<form accept-charset="utf-8" action='enviarcliente.php' method='GET'>
-				<h2> Cadastrar Clienteeeee</h2>
+				<h2> Cadastrar Cliente</h2>
 					<fieldset>
  <legend>Dados Pessoais</legend>
 					Nome:
@@ -71,7 +70,7 @@ function tipoPessoaSel() {
   <div id="pf">
     <div>
       <label for="cpf">CPF</label>
-      <input id="cpf" class="cpf" type="text" name="ds_cpf" size="20" maxlength="14" required />
+      <input id="cpf" class="cpf" type="text" name="ds_cpf" size="20" maxlength="14" />
     </div>
   </div>
 
@@ -118,8 +117,11 @@ function tipoPessoaSel() {
                         </fieldset>
 			
 		<br>
-        <center><input type="submit" value="Salvar" />
-<input type="reset" value="Cancelar"></center>
+        <center>
+			<input type="submit" value="Salvar" />
+			<input type="reset" value="Limpar Campos">
+			<button onclick="location.href='principalcliente.html';">Voltar</button>
+		</center>
 </form>	
 	
 	</body>

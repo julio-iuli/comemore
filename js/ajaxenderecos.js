@@ -1,3 +1,25 @@
+function completeEndereco(ds_cep) {
+	var buscarEndereco = "servidor.php?cliente_ds_cep=" + ds_cep;
+	$.get(buscarEndereco, function(data){
+		var endereco = JSON.parse(data);
+		
+		carregarCidades(endereco.id_uf);
+		carregarBairros(endereco.id_cidade);
+		carregarLogradouros(endereco.id_bairro);
+		
+		$("#inputestado").val(endereco.ds_estado);
+		$("#hiddenestado").val(endereco.id_uf);
+		$("#inputcidade").val(endereco.ds_cidade);
+		$("#hiddencidade").val(endereco.id_cidade);
+		$("#inputbairro").val(endereco.ds_bairro);
+		$("#hiddenbairro").val(endereco.id_bairro);
+		$("#inputlogradouro").val(endereco.ds_logradouro);
+		$("#hiddenlogradouro").val(endereco.id_logradouro);
+		$("#inputcep").val(endereco.ds_cep);
+		$("#inputcep").mask("99.999-999");
+	});
+}
+
 function carregarDadosCliente(id_cliente){
 	var ajax;
 	ajax = new XMLHttpRequest();
@@ -28,6 +50,11 @@ function carregarDadosCliente(id_cliente){
 			var buscaEndereco = "servidor.php?cliente_id_logradouro=" + cliente.tb_logradouro_id_logradouro;
 			$.get(buscaEndereco, function(data){
 				var endereco = JSON.parse(data);
+				
+				carregarCidades(endereco.id_uf);
+				carregarBairros(endereco.id_cidade);
+				carregarLogradouros(endereco.id_logradouro);
+				
 				$("#inputestado").val(endereco.ds_estado);
 				$("#hiddenestado").val(endereco.id_uf);
 				$("#inputcidade").val(endereco.ds_cidade);
@@ -37,6 +64,9 @@ function carregarDadosCliente(id_cliente){
 				$("#inputlogradouro").val(endereco.ds_logradouro);
 				$("#hiddenlogradouro").val(endereco.id_logradouro);
 				$("#inputcep").val(endereco.ds_cep);
+				$("#inputcep").mask("99.999-999");
+				
+				
 			});
 			
 			document.cookie = "";

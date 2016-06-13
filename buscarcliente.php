@@ -11,8 +11,10 @@
 <script>
 
 $(document).ready(function(){
-	//Retirando os requireds (PROVISÓRIO!!! RETIRAR)
-	$("input").prop("required", false);
+	//Desativando os campos dos dados, pois só servem pra visualizar
+	$("input:not(#inputbuscarcliente)").prop("readonly", true);
+	//Desativando o botão de busca pelo cep, pra não dar merda.
+	$("#buscarcep").prop("disabled", true);
 	
 	//Tratamento do autocomplete da busca do cliente
 	carregarClientes();
@@ -33,7 +35,7 @@ $(document).ready(function(){
 	
 	//tratamento das máscaras
 	$("input.data").mask("99/99/9999");
-        $("input.cep").mask("99.999-999");
+        //$("input.cep").mask("99.999-999");
 		$("input.ddd").mask("99");
 		$("input.tel").mask("9999-9999");		
 		$("input.cel").mask("99999-9999");
@@ -43,26 +45,9 @@ $(document).ready(function(){
 	//mudança do evento submit da busca
 	$("#formbusca").submit(function(event){
 		event.preventDefault();		
-			var str = $("#formbusca").serialize();
-			$("#teste").text(str);
 			var id_cliente = $("#hidden_id_cliente").val();
-			alert(id_cliente);
 			carregarDadosCliente(id_cliente);
-			
-			
 	});
-	//mudança do evento submit dos dados
-	$("#formdados").submit(function(event){
-		event.preventDefault();
-		if(confirm('confirma alteração?')){
-			$("input").unmask();
-			var str = $("#formdados").serialize();
-			$("#teste").text(str);
-		}
-		
-	});
-	
-	
 });
 
 function apaga_CPF() {	
@@ -94,14 +79,8 @@ function tipoPessoaSel() {
 }
 
 </script>
-
-
 	</head>
-	
-	
 	<body>
-	
-		<div width="400"><p id="teste"></p></div>
 		<fieldset>
 			<legend>Buscar Cliente</legend>
 				<form id="formbusca">
@@ -112,7 +91,6 @@ function tipoPessoaSel() {
 		</fieldset>
 	
 			<form id="formdados" accept-charset="utf-8" action='#' method='GET'>
-				<h2> Alterar Cliente</h2>
 					<fieldset>
 						<legend>Dados Pessoais</legend>
 						Nome:
@@ -174,8 +152,9 @@ function tipoPessoaSel() {
                     </fieldset>
 			
 		<br>
-        <center><input id="submitdados" type="submit" value="Alterar" />
-<input type="reset" value="Cancelar"></center>
+        <center>
+		<input type="button" onclick="location.href='principalcliente.html';" value="Voltar">
+		</center>
 </form>	
 	
 	</body>

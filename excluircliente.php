@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>Alterar Cliente</title>
+		<title>Excluir Cliente</title>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/jquery.mask.js"></script>
 <script type="text/javascript" src="js/jquery-ui.min.js"></script>
@@ -11,8 +11,10 @@
 <script>
 
 $(document).ready(function(){
-	//Retirando os requireds (PROVISÓRIO!!! RETIRAR)
-	$("input").prop("required", false);
+	//Desativando os campos dos dados, pois só servem pra visualizar
+	$("input:not(#inputbuscarcliente)").prop("readonly", true);
+	//Desativando o botão de busca pelo cep, pra não dar merda.
+	$("#buscarcep").prop("disabled", true);
 	
 	//Tratamento do autocomplete da busca do cliente
 	carregarClientes();
@@ -33,6 +35,7 @@ $(document).ready(function(){
 	
 	//tratamento das máscaras
 	$("input.data").mask("99/99/9999");
+        //$("input.cep").mask("99.999-999");
 		$("input.ddd").mask("99");
 		$("input.tel").mask("9999-9999");		
 		$("input.cel").mask("99999-9999");
@@ -42,27 +45,9 @@ $(document).ready(function(){
 	//mudança do evento submit da busca
 	$("#formbusca").submit(function(event){
 		event.preventDefault();		
-			var str = $("#formbusca").serialize();
-			$("#teste").text(str);
 			var id_cliente = $("#hidden_id_cliente").val();
-			var cliente = carregarDadosCliente(id_cliente);
-			
+			carregarDadosCliente(id_cliente);
 	});
-	//mudança do evento submit dos dados
-	$("#formdados").submit(function(event){
-		event.preventDefault();
-		if(confirm('confirma alteração?')){
-			var cliente = JSON.parse(document.cookie);
-			$("input").each(function(){
-				if($(this).val() == cliente[$(this).attr('name')]){
-					$(this).prop("disabled", true);
-				}
-			});
-			var str = $("#formdados").serialize();
-			$("#teste").text(str);
-		}
-	});
-	
 });
 
 function apaga_CPF() {	
@@ -94,14 +79,8 @@ function tipoPessoaSel() {
 }
 
 </script>
-
-
 	</head>
-	
-	
 	<body>
-	
-		<div width="400"><p id="teste"></p></div>
 		<fieldset>
 			<legend>Buscar Cliente</legend>
 				<form id="formbusca">
@@ -112,7 +91,6 @@ function tipoPessoaSel() {
 		</fieldset>
 	
 			<form id="formdados" accept-charset="utf-8" action='#' method='GET'>
-				<h2> Alterar Cliente</h2>
 					<fieldset>
 						<legend>Dados Pessoais</legend>
 						Nome:
@@ -175,10 +153,23 @@ function tipoPessoaSel() {
 			
 		<br>
         <center>
-			<input type="submit" value="Salvar" />
-			<input type="reset" value="Limpar Campos">
-			<input type="button" onclick="location.href='principalcliente.html';" value="Voltar">
+		<button onclick="location.href='principalcliente.html';">Voltar</button>
+		<button onclick="excluirCliente();">Excluir</button>
 		</center>
+		<script type="text/javascript">
+			function excluirCliente(){
+				if(confirm("Excluir Cliente?\n\n(os dados serão permanentemente perdidos)")){
+					var excluirCliente = "servidor.php?excluir_id_cliente=" + $("#hidden_id_cliente").val();
+					alert(excluirCliente);
+					if($.get(excluirCliente)){
+						alert("Dados Excluídos com sucesso")
+					} else {
+						alert("Falha na exclusão dos dados")
+					}
+				}
+			}
+		</script>
+		
 </form>	
 	
 	</body>

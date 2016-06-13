@@ -37,8 +37,14 @@ echo '
         <input id="inputcomplemento" type="text" name="ds_end_complemento" required /><br>
 		
 		<label>CEP</label><br>
-        <input id="inputcep" type="number" name="ds_cep" /><br>
-		
+		<input id="inputcep" type="text" name="ds_cep" />
+		<button id="buscarcep" onclick="buscaCep();">Busca por Cep</button> <br>
+		<script type="text/javascript">
+			$("#inputcep").mask("99.999-999");
+			function buscaCep(){
+				completeEndereco($("#inputcep").unmask().val() );
+			}
+		</script>
 		
     </fieldset>
 

@@ -66,11 +66,12 @@ function carregarDadosCliente(id_cliente){
 				$("#inputcep").val(endereco.ds_cep);
 				$("#inputcep").mask("99.999-999");
 				
-				
+				document.cookie2 = "";
+				document.cookie2 = data;
 			});
 			
-			document.cookie = "";
-			document.cookie = ajax.responseText;
+			document.cookie1 = "";
+			document.cookie1 = ajax.responseText;
 			
 		}
 	};

@@ -52,9 +52,13 @@ $(document).ready(function(){
 	$("#formdados").submit(function(event){
 		event.preventDefault();
 		if(confirm('confirma alteração?')){
-			var cliente = JSON.parse(document.cookie);
+			var cliente = JSON.parse(document.cookie1);
+			var endereco = JSON.parse(document.cookie2);
+			alert(document.cookie1);
+			alert(document.cookie2);
 			$("input").each(function(){
-				if($(this).val() == cliente[$(this).attr('name')]){
+				
+				if( ($(this).val() == cliente[$(this).attr('name')]) || ($(this).val() == endereco[$(this).attr('name')])){
 					$(this).prop("disabled", true);
 				}
 			});
@@ -173,13 +177,14 @@ function tipoPessoaSel() {
 						<input id="ds_recomendacao_data_nasc" type='date' name='ds_recomendacao_data_nasc' maxlength='80' size='38' /><br><br>
                     </fieldset>
 			
-		<br>
-        <center>
-			<input type="submit" value="Salvar" />
-			<input type="reset" value="Limpar Campos">
-			<input type="button" onclick="location.href='principalcliente.html';" value="Voltar">
-		</center>
-</form>	
+			
+			<br>
+			<center>
+				<input type="submit" value="Salvar" />
+				<input type="reset" value="Limpar Campos">
+				<input type="button" onclick="location.href='principalcliente.html';" value="Voltar">
+			</center>
+		</form>	
 	
 	</body>
 	

@@ -83,7 +83,7 @@
 					':id_logradouro' => $id_logradouro
 				));
 				
-				echo "situação 4: final do try: veja se salvou no banco";				
+				//echo "situação 4: final do try: veja se salvou no banco";				
 			} catch(PDOException $e) {
 				echo $e;
 			}
@@ -146,7 +146,7 @@
 					':ds_recomendacao_data_nasc' => $ds_recomendacao_data_nasc
 				));
 				
-				echo "situação 3: final do try: veja se salvou no banco";				
+				//echo "situação 3: final do try: veja se salvou no banco";				
 			} catch(PDOException $e) {
 				echo $e;
 			}
@@ -211,7 +211,7 @@
 					':ds_recomendacao_data_nasc' => $ds_recomendacao_data_nasc
 				));
 				
-				echo "situação 2: final do try: veja se salvou no banco";				
+				//echo "situação 2: final do try: veja se salvou no banco";				
 			} catch(PDOException $e) {
 				echo $e;
 			}
@@ -277,7 +277,7 @@
 					':ds_recomendacao_nome' => $ds_recomendacao_nome, 
 					':ds_recomendacao_data_nasc' => $ds_recomendacao_data_nasc
 				));
-				echo "situação 1: final do try: veja se salvou no banco";			
+				//echo "situação 1: final do try: veja se salvou no banco";			
 			} catch(PDOException $e) {
 				echo $e;
 			}

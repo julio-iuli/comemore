@@ -70,17 +70,17 @@ $(document).ready(function(){
 });
 
 function apaga_CPF() {	
-var oBv = document.getElementById("cpf");	
-oBv.value = "";
-oBv.required = false;
-document.getElementById("cnpj").required = true;
+	var oBv = document.getElementById("cpf");	
+	oBv.value = "";
+	oBv.required = false;
+	document.getElementById("cnpj").required = true;
 }	
 
 function apaga_CNPJ() {	
-var oBv = document.getElementById("cnpj");	
-oBv.value = "";
-oBv.required = false;
-document.getElementById("cpf").required = true;
+	var oBv = document.getElementById("cnpj");	
+	oBv.value = "";
+	oBv.required = false;
+	document.getElementById("cpf").required = true;
 }	
 
 

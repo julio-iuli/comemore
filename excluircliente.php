@@ -51,17 +51,17 @@ $(document).ready(function(){
 });
 
 function apaga_CPF() {	
-var oBv = document.getElementById("cpf");	
-oBv.value = "";
-oBv.required = false;
-document.getElementById("cnpj").required = true;
+	var oBv = document.getElementById("cpf");	
+	oBv.value = "";
+	oBv.required = false;
+	document.getElementById("cnpj").required = true;
 }	
 
 function apaga_CNPJ() {	
-var oBv = document.getElementById("cnpj");	
-oBv.value = "";
-oBv.required = false;
-document.getElementById("cpf").required = true;
+	var oBv = document.getElementById("cnpj");	
+	oBv.value = "";
+	oBv.required = false;
+	document.getElementById("cpf").required = true;
 }	
 
 
@@ -162,9 +162,9 @@ function tipoPessoaSel() {
 					var excluirCliente = "servidor.php?excluir_id_cliente=" + $("#hidden_id_cliente").val();
 					alert(excluirCliente);
 					if($.get(excluirCliente)){
-						alert("Dados Excluídos com sucesso")
+						alert("Dados Excluídos com sucesso");
 					} else {
-						alert("Falha na exclusão dos dados")
+						alert("Falha na exclusão dos dados");
 					}
 				}
 			}

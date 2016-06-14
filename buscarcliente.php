@@ -20,8 +20,13 @@ $(document).ready(function(){
 	carregarClientes();
 	$("#inputbuscarcliente").autocomplete({
 		change: function(event, ui){
+			try {
 			var id_cliente = ui.item.value;
 			$("#hidden_id_cliente").val(id_cliente);
+			} catch (err) {
+				$("#hidden_id_cliente").val("0");
+			}
+			
 		},
 		select: function(event, ui){
 			event.preventDefault();
@@ -44,24 +49,31 @@ $(document).ready(function(){
 	
 	//mudança do evento submit da busca
 	$("#formbusca").submit(function(event){
-		event.preventDefault();		
-			var id_cliente = $("#hidden_id_cliente").val();
-			carregarDadosCliente(id_cliente);
+		event.preventDefault();
+			alert( $("#inputbuscarcliente").val() + " e " + $("#hidden_id_cliente").val() );
+			if($("#hidden_id_cliente").val() != 0){
+				var id_cliente = $("#hidden_id_cliente").val();
+				carregarDadosCliente(id_cliente);	
+			} else {
+				alert( $("#inputbuscarcliente").val() );
+				//carregarDadosClienteSemId( $("#inputbuscarcliente").val());
+			}
+			
 	});
 });
 
 function apaga_CPF() {	
-var oBv = document.getElementById("cpf");	
-oBv.value = "";
-oBv.required = false;
-document.getElementById("cnpj").required = true;
+	var oBv = document.getElementById("cpf");	
+	oBv.value = "";
+	oBv.required = false;
+	document.getElementById("cnpj").required = true;
 }	
 
 function apaga_CNPJ() {	
-var oBv = document.getElementById("cnpj");	
-oBv.value = "";
-oBv.required = false;
-document.getElementById("cpf").required = true;
+	var oBv = document.getElementById("cnpj");	
+	oBv.value = "";
+	oBv.required = false;
+	document.getElementById("cpf").required = true;
 }	
 
 

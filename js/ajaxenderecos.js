@@ -28,6 +28,7 @@ function carregarDadosCliente(id_cliente){
 			var cliente = JSON.parse(ajax.responseText);
 						
 			$("#ds_cliente").val(cliente.ds_cliente);
+			$("#hidden_id_cliente1").val(cliente.id_cliente);
 			$("#ddd_res").val(cliente.ds_ddd_res);
 			$("#ddd_cel").val(cliente.ds_ddd_cel);
 			$("#ds_telefone_res").val(cliente.ds_telefone_res);

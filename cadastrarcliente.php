@@ -5,9 +5,17 @@
 		<title>Cadastrar Cliente</title>
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/jquery.mask.js"></script>
+		<link rel="stylesheet" href="css/w3.css">
 		<script>
 
 			$(document).ready(function(){
+
+					$("button, input[type=submit], input[type=reset]").addClass("w3-btn w3-white w3-border w3-border-blue w3-round-large");
+					$("input:not(input[type=submit], input[type=reset])").addClass("w3-input");
+					$("label").addClass("w3-label");
+					$("h2").addClass("w3-container w3-blue w3-animate-zoom").attr("align", "center");
+					//$("form").addClass("w3-form");
+				
 				$("input.data").mask("99/99/9999");
 					$("input.ddd").mask("(99)");
 					$("input.tel").mask("9999-9999");		
@@ -20,6 +28,7 @@
 						$(":input").unmask();
 						var dadosCliente = "enviarcliente.php?" + $("form").serialize();
 						alert(dadosCliente);
+						alert($("form").val());
 						if($.get(dadosCliente)){
 							alert("Dados Enviados com sucesso");
 							location.reload();
@@ -61,16 +70,16 @@
 		</script>
 	</head>
 	<body>
-		<form accept-charset="utf-8" action='enviarcliente.php' method='GET'>
+		<form class="w3-container w3-half w3-animate-bottom" accept-charset="utf-8" action='enviarcliente.php' method='GET'>
 			<h2> Cadastrar Cliente</h2>
 			<fieldset>
 				<legend>Dados Pessoais</legend>
-					Nome:
+					<label>Nome:</label>
 					<input type='text' name='ds_cliente' maxlength='80' size='38' /><br><br>
 				
 				  <div>
 					<label for="opt-pf">Pessoa Física</label>
-					<input id="opt-pf" checked="checked" type="radio" name='ds_pf_pj' value= "1" onClick="tipoPessoaSel(),apaga_CNPJ();" />&nbsp;
+					<input id="opt-pf" checked="checked" type="radio" name='ds_pf_pj' value= "1" onClick="tipoPessoaSel(),apaga_CNPJ();" />
 					<label for="opt-pj">Pessoa Jurídica</label>
 					<input id="opt-pj" type="radio" name='ds_pf_pj' value = "0"  onClick="tipoPessoaSel(),apaga_CPF();" />
 				  </div><br>
@@ -91,24 +100,24 @@
 				
 				<label for="emissor_rg">Orgão Emissor</label>
 				<input type='text' name='ds_emissor_rg' maxlength='2' size='38' /><br><br>
-				Telefone Residencial:
+				<label>Telefone Residencial:</label>
 				<input id="ddd1" class="ddd" type='text' name='ds_ddd_res' size='2'/>
 				<input id="tel" class="tel" type='text' name='ds_telefone_res' maxlength='9' size='10' /><br><br>
-				Telefone Celular:
+				<label>Telefone Celular:</label>
 				<input id="ddd2" class="ddd" type='text' name='ds_ddd_cel' size='2'/>
 				<input id="cel" class="cel" type='text' name='ds_telefone_cel' maxlength='9' size='10' /><br><br>						
-				E-mail:
+				<label>E-mail:</label>
 				<input type='text' name='ds_email' maxlength='80' size='38' /><br><br>
-				Data de Nascimento:
+				<label>Data de Nascimento:</label>
 				<input type='date' name='ds_data_nasc' maxlength='80' size='38' /><br><br>
 				
 			</fieldset>
 			<?php include 'endereco.php'; ?>
 			<fieldset>
 				<legend>Recomendações</legend>
-				Nome:
+				<label>Nome:</label>
 				<input type='text' name='ds_recomendacao_nome' maxlength='80' size='38' /><br><br>
-				Data de Nascimento:
+				<label>Data de Nascimento:</label>
 				<input type='date' name='ds_recomendacao_data_nasc' maxlength='80' size='38' /><br><br>
 			</fieldset><br>
 			<center>
@@ -116,6 +125,8 @@
 				<input type="reset" value="Limpar Campos">
 				<button onclick="location.href='principalcliente.html';">Voltar</button>
 			</center>
+
+			
 		</form>	
 	</body>
 </html>

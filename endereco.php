@@ -38,6 +38,7 @@ echo '
 		
 		<label>CEP</label><br>
 		<input id="inputcep" type="text" name="ds_cep" />
+		<br>
 		<button id="buscarcep" onclick="buscaCep();">Busca por Cep</button> <br>
 		<script type="text/javascript">
 			$("#inputcep").mask("99.999-999");

@@ -54,16 +54,15 @@ $(document).ready(function(){
 		if(confirm('confirma alteração?')){
 			var cliente = JSON.parse(document.cookie1);
 			var endereco = JSON.parse(document.cookie2);
-			alert(document.cookie1);
-			alert(document.cookie2);
-			$("input").each(function(){
+			$("input:not(#hidden_id_cliente1)").each(function(){
 				
 				if( ($(this).val() == cliente[$(this).attr('name')]) || ($(this).val() == endereco[$(this).attr('name')])){
 					$(this).prop("disabled", true);
 				}
 			});
-			var str = $("#formdados").serialize();
-			$("#teste").text(str);
+			var dadosAlterados = $("#formdados").serialize();
+			alert(dadosAlterados);
+			alert(typeof $("formdados").val() );
 		}
 	});
 	
@@ -121,7 +120,7 @@ function tipoPessoaSel() {
 						<legend>Dados Pessoais</legend>
 						Nome:
 						<input id="ds_cliente" type='text' name='ds_cliente' maxlength='80' size='38' /><br><br>
-					
+						<input id="hidden_id_cliente1" type="hidden" name="id_cliente" />			
 					  <div>
 						<label for="opt-pf">Pessoa Física</label>
 						<input id="opt-pf" checked="checked" type="radio" name='ds_pf_pj' value= "1" onClick="tipoPessoaSel(),apaga_CNPJ();" />&nbsp;

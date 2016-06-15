@@ -37,7 +37,7 @@ $(document).ready(function(){
 		$("input.tel").mask("9999-9999");		
 		$("input.cel").mask("99999-9999");
         $("input.cpf").mask("999.999.999-99");
-		$("input.cnpj").mask("99.999.999/9999-99");
+		$("input.cnpj").mask("99999.999/9999-99");
 	
 	//mudança do evento submit da busca
 	$("#formbusca").submit(function(event){
@@ -52,22 +52,20 @@ $(document).ready(function(){
 	$("#formdados").submit(function(event){
 		event.preventDefault();
 		if(confirm('confirma alteração?')){
+			alert(document.cookie1);
 			var cliente = JSON.parse(document.cookie1);
 			var endereco = JSON.parse(document.cookie2);
 			$("input:not(#hidden_id_cliente1)").each(function(){
-				
-				if( ($(this).val() == cliente[$(this).attr('name')]) || ($(this).val() == endereco[$(this).attr('name')])){
+				if( ($(this).unmask().val() == cliente[$(this).attr('name')]) || ($(this).val() == endereco[$(this).attr('name')])){
 					$(this).prop("disabled", true);
 				}
 			});
-			//var data = {};
-			//var dados = $("#formdados").serializeArray().map(function(x){data[x.name] = x.value;});
-			//alert(data.id_cliente);
-			var dados = $("#formdados").serialize();
+			var dados = $("#formdados").unmask().serialize();
 			var alterarDados = "alterardados.php?" + dados;
 			alert(alterarDados);
 			$.get(alterarDados, function(dados){
 				alert(dados);
+				location.reload();
 			});
 		}
 	});
@@ -144,7 +142,7 @@ function tipoPessoaSel() {
 
 						<div>
 						  <label for="cnpj">CNPJ</label>
-						  <input id="ds_cnpj" class="cnpj" type="text" name="ds_cnpj" size="20" maxlength="16" />
+						  <input id="ds_cnpj" class="cnpj" type="text" name="ds_cnpj" size="20" maxlength="16" value="00000000000000" />
 						</div>
 					  </div>
 						<br>

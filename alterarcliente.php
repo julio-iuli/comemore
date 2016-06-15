@@ -60,9 +60,15 @@ $(document).ready(function(){
 					$(this).prop("disabled", true);
 				}
 			});
-			var dadosAlterados = $("#formdados").serialize();
-			alert(dadosAlterados);
-			alert(typeof $("formdados").val() );
+			//var data = {};
+			//var dados = $("#formdados").serializeArray().map(function(x){data[x.name] = x.value;});
+			//alert(data.id_cliente);
+			var dados = $("#formdados").serialize();
+			var alterarDados = "alterardados.php?" + dados;
+			alert(alterarDados);
+			$.get(alterarDados, function(dados){
+				alert(dados);
+			});
 		}
 	});
 	

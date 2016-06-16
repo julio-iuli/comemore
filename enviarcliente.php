@@ -26,6 +26,10 @@
 	$id_logradouro = $_REQUEST['id_logradouro'];
 	$ds_cep = $_REQUEST['ds_cep'];
 	
+	// lidando com datas vazias...
+	if($ds_data_nasc == ""){$ds_data_nasc = "0000-00-00";}
+	if($ds_recomendacao_data_nasc == ""){$ds_recomendacao_data_nasc = "0000-00-00";}
+	
 		//Situação 1 : cidade nova (e, consequentemente, bairro, logradouro, cep) => id_cidade vazio
 		//Situação 2 : bairro novo (e, consequentemente, logradouro, cep) => id_bairro vazio
 		//Situação 3 : logadouro novo (e, consequentemente, cep) => id_logradouro vazio

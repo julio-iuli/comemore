@@ -3,10 +3,11 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Excluir Cliente</title>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/jquery.mask.js"></script>
-<script type="text/javascript" src="js/jquery-ui.min.js"></script>
-<link rel="stylesheet" type="text/css" href="js/jquery-ui.min.css">
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/jquery.mask.js"></script>
+		<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="js/jquery-ui.min.css">
+		<link rel="stylesheet" href="css/w3.css">
 
 <script>
 
@@ -15,6 +16,13 @@ $(document).ready(function(){
 	$("input:not(#inputbuscarcliente)").prop("readonly", true);
 	//Desativando o botão de busca pelo cep, pra não dar merda.
 	$("#buscarcep").prop("disabled", true);
+	
+	//W3CSS
+	
+	$("a, button, input[type=submit], input[type=reset]").addClass("w3-btn w3-white w3-border w3-border-blue w3-round-large");
+	$("input:not(input[type=submit], input[type=reset])").addClass("w3-input");
+	$("label").addClass("w3-label");
+	$("h2").addClass("w3-container w3-blue w3-animate-zoom").attr("align", "center");
 	
 	//Tratamento do autocomplete da busca do cliente
 	carregarClientes();
@@ -80,7 +88,7 @@ function tipoPessoaSel() {
 
 </script>
 	</head>
-	<body>
+	<body class="w3-container">
 		<fieldset>
 			<legend>Buscar Cliente</legend>
 				<form id="formbusca">
@@ -91,6 +99,7 @@ function tipoPessoaSel() {
 		</fieldset>
 	
 			<form id="formdados" accept-charset="utf-8" action='#' method='GET'>
+					<h2>EXCLUIR CLIENTE</h2>
 					<fieldset>
 						<legend>Dados Pessoais</legend>
 						Nome:
@@ -153,14 +162,13 @@ function tipoPessoaSel() {
 			
 		<br>
         <center>
-		<button onclick="location.href='principalcliente.html';">Voltar</button>
+		<a href='principalcliente.html'>VOLTAR</a>
 		<button onclick="excluirCliente();">Excluir</button>
 		</center>
 		<script type="text/javascript">
 			function excluirCliente(){
 				if(confirm("Excluir Cliente?\n\n(os dados serão permanentemente perdidos)")){
 					var excluirCliente = "servidor.php?excluir_id_cliente=" + $("#hidden_id_cliente").val();
-					alert(excluirCliente);
 					if($.get(excluirCliente)){
 						alert("Dados Excluídos com sucesso");
 					} else {

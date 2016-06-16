@@ -3,10 +3,11 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Alterar Cliente</title>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/jquery.mask.js"></script>
-<script type="text/javascript" src="js/jquery-ui.min.js"></script>
-<link rel="stylesheet" type="text/css" href="js/jquery-ui.min.css">
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/jquery.mask.js"></script>
+		<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="js/jquery-ui.min.css">
+		<link rel="stylesheet" href="css/w3.css">
 
 <script>
 
@@ -14,6 +15,13 @@ $(document).ready(function(){
 	//Retirando os requireds (PROVISÓRIO!!! RETIRAR)
 	$("input").prop("required", false);
 	
+	// W3CSS
+	$("a, button, input[type=submit], input[type=reset]").addClass("w3-btn w3-white w3-border w3-border-blue w3-round-large");
+	$("input:not(input[type=submit], input[type=reset])").addClass("w3-input");
+	$("label").addClass("w3-label");
+	$("h2").addClass("w3-container w3-blue w3-animate-zoom").attr("align", "center");
+	//$("form").addClass("w3-form");
+
 	//Tratamento do autocomplete da busca do cliente
 	carregarClientes();
 	$("#inputbuscarcliente").autocomplete({
@@ -52,7 +60,7 @@ $(document).ready(function(){
 	$("#formdados").submit(function(event){
 		event.preventDefault();
 		if(confirm('confirma alteração?')){
-			alert(document.cookie1);
+			//alert(document.cookie1);
 			var cliente = JSON.parse(document.cookie1);
 			var endereco = JSON.parse(document.cookie2);
 			$("input:not(#hidden_id_cliente1)").each(function(){
@@ -62,9 +70,10 @@ $(document).ready(function(){
 			});
 			var dados = $("#formdados").unmask().serialize();
 			var alterarDados = "alterardados.php?" + dados;
-			alert(alterarDados);
+			//alert(alterarDados);
 			$.get(alterarDados, function(dados){
-				alert(dados);
+				//alert(dados); // RETIRE O COMENTÁRIO PARA VER AS QUERYS
+				alert('dados alterados');
 				location.reload();
 			});
 		}
@@ -106,19 +115,20 @@ function tipoPessoaSel() {
 	</head>
 	
 	
-	<body>
+	<body class="w3-container">
 	
 		<div width="400"><p id="teste"></p></div>
-		<fieldset>
-			<legend>Buscar Cliente</legend>
-				<form id="formbusca">
+			<form class="w3-container w3-animate-opacity" id="formbusca">
+				<fieldset>
+					<legend>Buscar Cliente</legend>
 					<input id="inputbuscarcliente" type="text" name="clientebuscado" /><br><br>
 					<input id="hidden_id_cliente" type="hidden" name="id_cliente" />			
 					<input id="submitbusca" type="submit" value="buscar dados do cliente" />
-				</form>
-		</fieldset>
+				</fieldset>
+			</form>
+		
 	
-			<form id="formdados" accept-charset="utf-8" action='#' method='GET'>
+			<form class="w3-container w3-animate-bottom" id="formdados" accept-charset="utf-8" action='#' method='GET'>
 				<h2> Alterar Cliente</h2>
 					<fieldset>
 						<legend>Dados Pessoais</legend>
@@ -185,7 +195,7 @@ function tipoPessoaSel() {
 			<center>
 				<input type="submit" value="Salvar" />
 				<input type="reset" value="Limpar Campos">
-				<input type="button" onclick="location.href='principalcliente.html';" value="Voltar">
+				<a href='principalcliente.html'>Voltar</a>
 			</center>
 		</form>	
 	

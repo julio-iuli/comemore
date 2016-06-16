@@ -3,11 +3,11 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Alterar Cliente</title>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/jquery.mask.js"></script>
-<script type="text/javascript" src="js/jquery-ui.min.js"></script>
-<link rel="stylesheet" type="text/css" href="js/jquery-ui.min.css">
-
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/jquery.mask.js"></script>
+		<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="js/jquery-ui.min.css">
+		<link rel="stylesheet" href="css/w3.css">
 <script>
 
 $(document).ready(function(){
@@ -15,6 +15,12 @@ $(document).ready(function(){
 	$("input:not(#inputbuscarcliente)").prop("readonly", true);
 	//Desativando o botão de busca pelo cep, pra não dar merda.
 	$("#buscarcep").prop("disabled", true);
+	
+	//W3CSS
+	$("a, button, input[type=submit], input[type=reset]").addClass("w3-btn w3-white w3-border w3-border-blue w3-round-large");
+	$("input:not(input[type=submit], input[type=reset])").addClass("w3-input");
+	$("label").addClass("w3-label");
+	$("h2").addClass("w3-container w3-blue w3-animate-zoom").attr("align", "center");
 	
 	//Tratamento do autocomplete da busca do cliente
 	carregarClientes();
@@ -50,7 +56,7 @@ $(document).ready(function(){
 	//mudança do evento submit da busca
 	$("#formbusca").submit(function(event){
 		event.preventDefault();
-			alert( $("#inputbuscarcliente").val() + " e " + $("#hidden_id_cliente").val() );
+			//alert( $("#inputbuscarcliente").val() + " e " + $("#hidden_id_cliente").val() );
 			if($("#hidden_id_cliente").val() != 0){
 				var id_cliente = $("#hidden_id_cliente").val();
 				carregarDadosCliente(id_cliente);	
@@ -92,7 +98,7 @@ function tipoPessoaSel() {
 
 </script>
 	</head>
-	<body>
+	<body class="w3-container">
 		<fieldset>
 			<legend>Buscar Cliente</legend>
 				<form id="formbusca">
@@ -103,6 +109,7 @@ function tipoPessoaSel() {
 		</fieldset>
 	
 			<form id="formdados" accept-charset="utf-8" action='#' method='GET'>
+					<h2>BUSCAR CLIENTE</h2>
 					<fieldset>
 						<legend>Dados Pessoais</legend>
 						Nome:
@@ -165,7 +172,7 @@ function tipoPessoaSel() {
 			
 		<br>
         <center>
-		<input type="button" onclick="location.href='principalcliente.html';" value="Voltar">
+		<a href='principalcliente.html'>VOLTAR</a>
 		</center>
 </form>	
 	

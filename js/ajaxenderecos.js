@@ -1,23 +1,39 @@
-function completeEndereco(ds_cep) {
+function completeEndereco(ds_cep) {	
 	var buscarEndereco = "servidor.php?cliente_ds_cep=" + ds_cep;
-	$.get(buscarEndereco, function(data){
-		var endereco = JSON.parse(data);
 		
-		carregarCidades(endereco.id_uf);
-		carregarBairros(endereco.id_cidade);
-		carregarLogradouros(endereco.id_bairro);
-		
-		$("#inputestado").val(endereco.ds_estado);
-		$("#hiddenestado").val(endereco.id_uf);
-		$("#inputcidade").val(endereco.ds_cidade);
-		$("#hiddencidade").val(endereco.id_cidade);
-		$("#inputbairro").val(endereco.ds_bairro);
-		$("#hiddenbairro").val(endereco.id_bairro);
-		$("#inputlogradouro").val(endereco.ds_logradouro);
-		$("#hiddenlogradouro").val(endereco.id_logradouro);
-		$("#inputcep").val(endereco.ds_cep);
-		$("#inputcep").mask("99.999-999");
-	});
+		$.get(buscarEndereco, function(data){
+			if(data != ""){
+				var endereco = JSON.parse(data);
+				
+				$("#inputestado").val(endereco.ds_estado);
+				$("#hiddenestado").val(endereco.id_uf);
+				$("#inputcidade").val(endereco.ds_cidade);
+				$("#hiddencidade").val(endereco.id_cidade);
+				$("#inputbairro").val(endereco.ds_bairro);
+				$("#hiddenbairro").val(endereco.id_bairro);
+				$("#inputlogradouro").val(endereco.ds_logradouro);
+				$("#hiddenlogradouro").val(endereco.id_logradouro);
+				$("#inputcep").val(endereco.ds_cep);
+				//$("#inputcep").mask("99.999-999");
+				//$("#inputcomplemento").focus();
+				
+				//carregarCidades(endereco.id_uf);
+				//carregarBairros(endereco.id_cidade);
+				//carregarLogradouros(endereco.id_bairro);
+				
+			} else {
+				$("#inputestado").val("");
+				$("#hiddenestado").val("");
+				$("#inputcidade").val("");
+				$("#hiddencidade").val("");
+				$("#inputbairro").val("");
+				$("#hiddenbairro").val("");
+				$("#inputlogradouro").val("");
+				$("#hiddenlogradouro").val("");
+			}
+		});
+			
+
 }
 
 function carregarDadosCliente(id_cliente){

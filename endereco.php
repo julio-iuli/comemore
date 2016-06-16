@@ -40,10 +40,11 @@ echo '
 		<input id="inputcep" type="text" name="ds_cep" />
 		<br>
 		<button id="buscarcep" onclick="buscaCep();">Busca por Cep</button> <br>
-		<script type="text/javascript">
-			$("#inputcep").mask("99.999-999");
+		<script type="text/javascript">			
 			function buscaCep(){
-				completeEndereco($("#inputcep").unmask().val() );
+				completeEndereco($("#inputcep").unmask().val(), function(){
+					alert("callback?docompleteendereco?");
+				});
 			}
 		</script>
 		

@@ -56,7 +56,7 @@ function carregarDadosCliente(id_cliente){
 			$("#ds_data_nasc").val(cliente.ds_data_nasc);
 			$("#ds_recomendacao_nome").val(cliente.ds_recomendacao_nome);
 			$("#ds_recomendacao_data_nasc").val(cliente.ds_recomendacao_data_nasc);
-			
+						
 			//TESTANDO PF-PJ
 			if(cliente.ds_pf_pj == 0){
 				$("#opt_pj").attr("checked", true);
@@ -68,9 +68,7 @@ function carregarDadosCliente(id_cliente){
 			$.get(buscaEndereco, function(data){
 				var endereco = JSON.parse(data);
 				
-				carregarCidades(endereco.id_uf);
-				carregarBairros(endereco.id_cidade);
-				carregarLogradouros(endereco.id_logradouro);
+
 				
 				$("#inputestado").val(endereco.ds_estado);
 				$("#hiddenestado").val(endereco.id_uf);
@@ -82,6 +80,11 @@ function carregarDadosCliente(id_cliente){
 				$("#hiddenlogradouro").val(endereco.id_logradouro);
 				$("#inputcep").val(endereco.ds_cep);
 				$("#inputcep").mask("99.999-999");
+				
+				carregarCidades(endereco.id_uf);
+				carregarBairros(endereco.id_cidade);
+				alert(endereco.id_logradouro);
+				carregarLogradouros(endereco.id_bairro);
 				
 				document.cookie2 = "";
 				document.cookie2 = data;

@@ -70,7 +70,7 @@ $(document).ready(function(){
 			});
 			var dados = $("#formdados").unmask().serialize();
 			var alterarDados = "alterardados.php?" + dados;
-			//alert(alterarDados);
+			alert("DADOS QUE ESTÃO INDO PRO SERVIDOR: \n" + alterarDados);
 			$.get(alterarDados, function(dados){
 				//alert(dados); // RETIRE O COMENTÁRIO PARA VER AS QUERYS
 				alert('dados alterados');

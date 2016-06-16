@@ -58,6 +58,8 @@ $("document").ready(function(){
 	
 	$("#inputlogradouro").autocomplete({
 		change: function(event, ui){
+			// ativando o id bairro se eu escrever um logradouro novo
+
 			$("#inputcomplemento").val("");
 			$("#inputcep").attr("value", "").attr("readonly", false);
 			var id_logradouro = ui.item.value;								

@@ -68,14 +68,19 @@ $(document).ready(function(){
 					$(this).prop("disabled", true);
 				}
 			});
+			
+			if($("#inputlogradouro").prop("disabled") == false){
+				$("#hiddenbairro").prop("disabled", false);
+			}
+			
 			var dados = $("#formdados").unmask().serialize();
 			var alterarDados = "alterardados.php?" + dados;
 			alert("DADOS QUE ESTÃO INDO PRO SERVIDOR: \n" + alterarDados);
-			$.get(alterarDados, function(dados){
-				//alert(dados); // RETIRE O COMENTÁRIO PARA VER AS QUERYS
+		/*	$.get(alterarDados, function(dados){
+				alert(dados); // RETIRE O COMENTÁRIO PARA VER AS QUERYS
 				alert('dados alterados');
 				location.reload();
-			});
+			}); */
 		}
 	});
 	

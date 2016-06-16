@@ -43,7 +43,7 @@ echo '
 		<script type="text/javascript">			
 			function buscaCep(){
 				completeEndereco($("#inputcep").unmask().val(), function(){
-					alert("callback?docompleteendereco?");
+					alert("callback?docompleteendereco?"); // PORQUE COLOQUEI ISSO MESMO?
 				});
 			}
 		</script>

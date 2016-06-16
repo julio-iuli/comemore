@@ -83,7 +83,6 @@ function carregarDadosCliente(id_cliente){
 				
 				carregarCidades(endereco.id_uf);
 				carregarBairros(endereco.id_cidade);
-				alert(endereco.id_logradouro);
 				carregarLogradouros(endereco.id_bairro);
 				
 				document.cookie2 = "";

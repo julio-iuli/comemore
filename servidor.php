@@ -42,4 +42,12 @@
 	if(@$_REQUEST['excluir_id_cliente']){
 		echo excluirCliente($_REQUEST['excluir_id_cliente']);
 	}
+	
+	if(@$_REQUEST['mudacategoria']) {
+		include 'conectacomemore.php';
+		$query = 'UPDATE tb_categoria SET ds_categoria = "' . $_REQUEST['mudacategoria'] . '" WHERE id_categoria = ' . $_REQUEST['id_categoria'] . ';';
+		$con->query($query);
+		
+	}
+	
 ?>

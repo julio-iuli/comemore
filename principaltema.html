@@ -4,16 +4,28 @@
 		<title>PRINCIPAL TEMAS</title>
 
 	</head>
-	<body>
-		<h2>Temas</h2>
-		<a href= 'cadastrartema.html'>
-		<input type='submit' value='Inserir'></a><br><br>
+	<body class="w3-container w3-center">
+		<h1>TEMAS</h1>
+		<a href= 'cadastrartema.php'>CADASTRAR</a>
+		<br><br>
 		
-		<a href= 'selecionartema.php'>
-		<input type='submit' value='Gerenciar'></a><br><br>
+		<a href= 'categoria.php'>CATEGORIA</a>
+		<br><br>
 		
-		<a href= 'principalsistema.html'>
-		<input type='submit' value='Voltar'></a><br><br>
+		<a href= 'selecionartema.php'>GERENCIAR</a>
+		<br><br>
+		
+		<a href= 'principalsistema.html'>VOLTAR</a>
+		<br><br>
 	</body>
+	
+	<link rel="stylesheet" href="css/w3.css">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("a").addClass("w3-btn w3-white w3-border w3-border-blue w3-round-large w3-xxxlarge");
+			$("h1").addClass("w3-container w3-blue w3-animate-zoom w3-xxxlarge").attr("align", "center");
+		});
+	</script>
 	
 </html>

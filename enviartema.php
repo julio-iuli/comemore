@@ -7,6 +7,9 @@
 	$ds_preco = $_REQUEST['ds_preco']; 
 	$tb_categoria_id_categoria = $_REQUEST['tb_categoria_id_categoria'];
 	
+
+	if($ds_data_compra == ''){$ds_data_compra = '0000-00-00';}
+	
 	include 'conectacomemore.php';
 	
 	$stmt = $con->prepare('

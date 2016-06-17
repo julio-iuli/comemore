@@ -1,10 +1,5 @@
 <?php
-# Informa qual o conjunto de caracteres será usado.
 header('Content-Type: text/html; charset=utf-8');
-
-# Conecta ao banco de dados
-# Aqui está o segredo
-
 
 include "conectacomemore.php";
 
@@ -19,6 +14,8 @@ include "conectacomemore.php";
 		$id_tema = $_REQUEST['id_tema'];
 
 		$id_tema = intval($id_tema);
+		
+		if($ds_data_compra == ''){$ds_data_compra = '0000-00-00';}
 		
 		$stmt = $con->prepare('
 		UPDATE tb_tema
@@ -59,13 +56,13 @@ include "conectacomemore.php";
 	
 <html lang="pt-BR">
 	<head>
-		<meta charset="UTF-8"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Formulario Teste</title>
 
 	</head>
 	<body>
-			<form action='alterartema.php' method='GET'>
-				<h1> Alterar Tema</h1>
+			<form action='alterartema.php' accept-charset="utf-8" method='GET'>
+				<h1>ALTERAR TEMA</h1>
 					<table>
 						<tr>
 						<td>Nome do Tema:</td>
@@ -96,10 +93,14 @@ include "conectacomemore.php";
 							<td>Categoria:</td>
 								<td>
 									<select id="sel" name='tb_categoria_id_categoria'>
-										<option value='1'>Heróis</option>
-										<option value='2'>Princesas</option>
-										<option value='3'>Animes</option>
-										<option value='4'>Video Game</option>
+										<?php  
+											header("Content-type: text/html; charset=utf-8");
+											include "conectacomemore.php";
+											$res = $con->query("SELECT id_categoria, ds_categoria FROM tb_categoria;");
+											while($row = $res->fetch(PDO::FETCH_ASSOC)){
+												echo '<option value="'. $row['id_categoria'] . '">' . $row['ds_categoria'] . '</option>';
+											}
+										?>
 									</select>
 								</td>
 								<script type='text/javascript'>

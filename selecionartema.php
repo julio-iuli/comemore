@@ -15,12 +15,12 @@ function apagar() {
 }
 </script>
 		<meta charset="UTF-8"/>
-		<title>PRINCIPAL PEDIDOS</title>
+		<title>SELECIONAR TEMA</title>
 	</head>
 	
 	<body>
 		
-		<h1>Selecionar Tema</h1>
+		<h1>SELECIONAR TEMA</h1>
 		
 		<table border='1'/>
 			<thead>
@@ -69,7 +69,7 @@ function apagar() {
 				?>
 			</tbody>
 		</table><br>
-		<a href='principaltema.html'><input type='button' value='Voltar'/><a>
+		<a href='principaltema.html'>VOLTAR<a>
 	
 	</body>
 	

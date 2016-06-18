@@ -98,7 +98,7 @@ function tipoPessoaSel() {
 				</form>
 		</fieldset>
 	
-			<form id="formdados" accept-charset="utf-8" action='#' method='GET'>
+			<form id="formdados" accept-charset="utf-8" method='GET'>
 					<h2>EXCLUIR CLIENTE</h2>
 					<fieldset>
 						<legend>Dados Pessoais</legend>

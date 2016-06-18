@@ -30,10 +30,11 @@
 					$("input.cnpj").mask("99.999.999/9999-99");
 					
 				$("#enviardados").click(function(){
+					event.preventDefault();
 					if(confirm('Enviar dados?')){
 						$(":input").unmask();
 						var dadosCliente = "enviarcliente.php?" + $("form").serialize();
-						alert(dadosCliente);						
+						//alert(dadosCliente);						
 						if($.get(dadosCliente)){
 							alert("Dados Enviados com sucesso");
 							location.reload();

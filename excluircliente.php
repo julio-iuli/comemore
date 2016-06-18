@@ -171,9 +171,8 @@ function tipoPessoaSel() {
 					var excluirCliente = "servidor.php?excluir_id_cliente=" + $("#hidden_id_cliente").val();
 					if($.get(excluirCliente)){
 						alert("Dados Excluídos com sucesso");
-					} else {
-						alert("Falha na exclusão dos dados");
 					}
+				location.reload();
 				}
 			}
 		</script>

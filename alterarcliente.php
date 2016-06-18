@@ -51,7 +51,6 @@ $(document).ready(function(){
 	$("#formbusca").submit(function(event){
 		event.preventDefault();		
 			var str = $("#formbusca").serialize();
-			$("#teste").text(str);
 			var id_cliente = $("#hidden_id_cliente").val();
 			var cliente = carregarDadosCliente(id_cliente);
 			
@@ -75,9 +74,9 @@ $(document).ready(function(){
 			
 			var dados = $("#formdados").unmask().serialize();
 			var alterarDados = "alterardados.php?" + dados;
-			alert("DADOS QUE ESTÃO INDO PRO SERVIDOR: \n" + alterarDados);
+			//alert("DADOS QUE ESTÃO INDO PRO SERVIDOR: \n" + alterarDados);
 			$.get(alterarDados, function(dados){
-				alert(dados); // RETIRE O COMENTÁRIO PARA VER AS QUERYS
+				//alert(dados); // RETIRE O COMENTÁRIO PARA VER AS QUERYS
 				alert('dados alterados');
 				location.reload();
 			}); 
@@ -122,7 +121,6 @@ function tipoPessoaSel() {
 	
 	<body class="w3-container">
 	
-		<div width="400"><p id="teste"></p></div>
 			<form class="w3-container w3-animate-opacity" id="formbusca">
 				<fieldset>
 					<legend>Buscar Cliente</legend>

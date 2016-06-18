@@ -61,7 +61,7 @@ $(document).ready(function(){
 				var id_cliente = $("#hidden_id_cliente").val();
 				carregarDadosCliente(id_cliente);	
 			} else {
-				alert( $("#inputbuscarcliente").val() );
+				//alert( $("#inputbuscarcliente").val() );
 				//carregarDadosClienteSemId( $("#inputbuscarcliente").val());
 			}
 			

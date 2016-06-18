@@ -167,6 +167,7 @@ function tipoPessoaSel() {
 		</center>
 		<script type="text/javascript">
 			function excluirCliente(){
+				event.preventDefault();
 				if(confirm("Excluir Cliente?\n\n(os dados serão permanentemente perdidos)")){
 					var excluirCliente = "servidor.php?excluir_id_cliente=" + $("#hidden_id_cliente").val();
 					if($.get(excluirCliente)){

@@ -5,6 +5,7 @@ header('Content-Type: text/html; charset=utf-8');
 <html lang="pt-BR">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="css/w3.css">
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<title>CATEGORIAS</title>
 	</head>
@@ -21,7 +22,7 @@ header('Content-Type: text/html; charset=utf-8');
 			<a href="principaltema.html">VOLTAR</a>
 		</fieldset>
 		
-		<table border="1">
+		<table class="w3-table-all">
 			<thead>
 				<td></td>
 				<td>CATEGORIA</td>
@@ -61,7 +62,7 @@ header('Content-Type: text/html; charset=utf-8');
 					echo '<tr>';
 						echo '<td>';
 							echo '<a href="categoria.php?action=del&id_categoria=' . $row['id_categoria'] . '"><img src="excluir.gif" onclick="apagar()" alt="excluir"/></a>';
-							echo '<img src="edit.png" width="20" height="20" alt="editar" onclick="editar('. $row['id_categoria']. ')" /></a>';
+							echo '<a href="#"><img src="edit.png" width="20" height="20" alt="editar" onclick="editar('. $row['id_categoria']. ')" /></a>';
 						echo '</td>';
 						echo '<td>';
 							echo $row['ds_categoria'];
@@ -103,5 +104,11 @@ header('Content-Type: text/html; charset=utf-8');
 				});
 			}
 		}
+		
+		$(function(){
+			$("a, input").addClass("w3-btn w3-white w3-border w3-border-blue w3-round-large w3-large");
+			$("h1").addClass("w3-container w3-blue w3-animate-zoom w3-xxxlarge").attr("align", "center");
+		});
+	</script>
 		
 	</script>

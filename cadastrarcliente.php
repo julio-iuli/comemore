@@ -19,7 +19,7 @@
 					$("a, button, input[type=submit], input[type=reset]").addClass("w3-btn w3-white w3-border w3-border-blue w3-round-large");
 					//$("input:not(input[type=submit], input[type=reset])").addClass("w3-input");
 					$("label").addClass("w3-label");
-					$("h2").addClass("w3-container w3-blue w3-animate-zoom").attr("align", "center");
+					$("h1").addClass("w3-container w3-blue w3-animate-zoom w3-xxxlarge").attr("align", "center");
 					//$("form").addClass("w3-form");
 				
 				$("input.data").mask("99/99/9999");
@@ -33,11 +33,10 @@
 					if(confirm('Enviar dados?')){
 						$(":input").unmask();
 						var dadosCliente = "enviarcliente.php?" + $("form").serialize();
-						alert(dadosCliente);
-						alert($("form").val());
+						alert(dadosCliente);						
 						if($.get(dadosCliente)){
 							alert("Dados Enviados com sucesso");
-							//location.reload();
+							location.reload();
 						} else {
 							alert("Falha no envio dos dados");
 						}
@@ -82,7 +81,7 @@
 	</head>
 	<body class="w3-container w3-animate-bottom">
 		<form id="formdados" accept-charset="utf-8" action='#' method='GET'>
-			<h2> Cadastrar Cliente</h2>
+			<h1> Cadastrar Cliente</h1>
 			<fieldset>
 				<legend>Dados Pessoais</legend>
 					<label>Nome:</label>

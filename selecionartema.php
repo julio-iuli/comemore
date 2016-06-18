@@ -16,13 +16,14 @@ function apagar() {
 </script>
 		<meta charset="UTF-8"/>
 		<title>SELECIONAR TEMA</title>
+		<link rel="stylesheet" href="css/w3.css">
 	</head>
 	
 	<body>
 		
 		<h1>SELECIONAR TEMA</h1>
 		
-		<table border='1'/>
+		<table class="w3-table-all"/>
 			<thead>
 				<td></td>
 				<td>Nome do Tema</td>
@@ -69,8 +70,16 @@ function apagar() {
 				?>
 			</tbody>
 		</table><br>
-		<a href='principaltema.html'>VOLTAR<a>
+		<center><a href='principaltema.html'>VOLTAR<a></center>
 	
 	</body>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("a").addClass("w3-btn w3-white w3-border w3-border-blue w3-round-large w3-large");
+			$("h1").addClass("w3-container w3-blue w3-animate-zoom w3-xxxlarge").attr("align", "center");
+		});
+	</script>
+
 	
 </html>

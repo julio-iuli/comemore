@@ -45,8 +45,15 @@
 	
 	if(@$_REQUEST['mudacategoria']) {
 		include 'conectacomemore.php';
-		$query = 'UPDATE tb_categoria SET ds_categoria = "' . $_REQUEST['mudacategoria'] . '" WHERE id_categoria = ' . $_REQUEST['id_categoria'] . ';';
-		$con->query($query);
+		
+		$stmt = $con->prepare('
+		UPDATE tb_categoria SET ds_categoria = :mudacategoria  WHERE id_categoria = :id_categoria;'
+		);
+		
+		$stmt->execute(array(
+		':mudacategoria' => $_REQUEST['mudacategoria'], 
+		':id_categoria' => intval($_REQUEST['id_categoria'])
+		));
 		
 	}
 	

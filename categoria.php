@@ -16,6 +16,7 @@ header('Content-Type: text/html; charset=utf-8');
 					<input id="inputcategoria" type="text" name="ds_categoria">
 					<br><br>
 					<input type="submit" value="Salvar">
+					<input id="hiddencategoria" type="hidden" name="mudacategoria" disabled>
 				</form>
 			<a href="principaltema.html">VOLTAR</a>
 		</fieldset>
@@ -90,12 +91,12 @@ header('Content-Type: text/html; charset=utf-8');
 		
 		function editar(id_categoria){
 			var novaDsCategoria = prompt('Entre com o novo nome');
-			
 			if(novaDsCategoria == null || novaDsCategoria == ''){
 				alert('nome não foi mudado')
 			} else {
-				novaDsCategoria = novaDsCategoria.replace(" ", '+');
-				var requisicao = 'servidor.php?mudacategoria=' + novaDsCategoria + '&id_categoria=' + id_categoria;
+				$("#hiddencategoria").prop("disabled", false).val(novaDsCategoria);
+				novaDsCategoria = $("#hiddencategoria").serialize();
+				var requisicao = 'servidor.php?' + novaDsCategoria + '&id_categoria=' + id_categoria;
 				$.get(requisicao, function(){
 					alert('nome mudado com sucesso!');
 					location.reload();

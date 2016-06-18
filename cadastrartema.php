@@ -2,11 +2,11 @@
 	<head>
 		<meta charset='utf-8'/>
 		<title>CADASTRAR TEMA</title>
-
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	</head>
 	
 	<body class="w3-container w3-center">
-		<form action='enviartema.php' method='GET'>
+		<form action='enviartema.php' accept-charset="utf-8" method='GET'>
 			
 			<center><h1>CADASTRAR TEMA</h1></center>
 			<fieldset><br>
@@ -70,12 +70,12 @@
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript">
 		$(function(){
-			$("a, #submit, #reset, input, select, textarea").addClass("w3-btn w3-white w3-border w3-border-blue w3-round-large w3-large");
+			$("a, #submit, #reset, select, input").addClass("w3-btn w3-white w3-border w3-border-blue w3-round-large w3-large");
 			$("h1").addClass("w3-container w3-blue w3-animate-zoom w3-xxxlarge").attr("align", "center");
 			
 			$("#submit").click(function(){
 				event.preventDefault();
-				alert($("form").serialize());
+				//alert($("form").serialize());
 				if(confirm('Enviar dados?')){
 					$.get( "enviartema.php?" + $("form").serialize(), function(){
 						alert('Dados enviados');

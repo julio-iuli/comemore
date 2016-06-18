@@ -15,7 +15,7 @@ function completeEndereco(ds_cep) {
 				$("#hiddenlogradouro").val(endereco.id_logradouro);
 				$("#inputcep").val(endereco.ds_cep);
 				//$("#inputcep").mask("99.999-999");
-				$("#inputcomplemento").focus();
+				//$("#inputcomplemento").focus();
 				
 				//carregarCidades(endereco.id_uf);
 				//carregarBairros(endereco.id_cidade);

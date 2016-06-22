@@ -125,8 +125,8 @@ include "conectacomemore.php";
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript">
 		$(function(){
-			$("a, #submit, #reset, select, input").addClass("w3-btn w3-white w3-border w3-border-blue w3-round-large w3-large");
-			$("h1").addClass("w3-container w3-blue w3-animate-zoom w3-xxxlarge").attr("align", "center");
+			$("a, #submit, #reset, select, input").addClass("w3-btn w3-white w3-border w3-border-deep-purple w3-round-large w3-large");
+			$("h1").addClass("w3-container w3-deep-purple w3-animate-zoom w3-xxxlarge").attr("align", "center");
 		});
 	</script>
 	

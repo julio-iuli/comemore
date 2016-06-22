@@ -16,10 +16,10 @@
 				//Retirando os requireds (PROVISÓRIO!!! RETIRAR)
 				//$("input").prop("required", false);
 
-					$("a, button, input[type=submit], input[type=reset]").addClass("w3-btn w3-white w3-border w3-border-blue w3-round-large");
+					$("a, button, input[type=submit], input[type=reset]").addClass("w3-btn w3-white w3-border w3-border-deep-purple w3-round-large");
 					//$("input:not(input[type=submit], input[type=reset])").addClass("w3-input");
 					$("label").addClass("w3-label");
-					$("h1").addClass("w3-container w3-blue w3-animate-zoom w3-xxxlarge").attr("align", "center");
+					$("h1").addClass("w3-container w3-deep-purple w3-animate-zoom w3-xxxlarge").attr("align", "center");
 					//$("form").addClass("w3-form");
 				
 				$("input.data").mask("99/99/9999");

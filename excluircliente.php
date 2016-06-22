@@ -19,10 +19,10 @@ $(document).ready(function(){
 	
 	//W3CSS
 	
-	$("a, button, input[type=submit], input[type=reset]").addClass("w3-btn w3-white w3-border w3-border-blue w3-round-large");
+	$("a, button, input[type=submit], input[type=reset]").addClass("w3-btn w3-white w3-border w3-border-deep-purple w3-round-large");
 	$("input:not(input[type=submit], input[type=reset])").addClass("w3-input");
 	$("label").addClass("w3-label");
-	$("h2").addClass("w3-container w3-blue w3-animate-zoom").attr("align", "center");
+	$("h2").addClass("w3-container w3-deep-purple w3-animate-zoom").attr("align", "center");
 	
 	//Tratamento do autocomplete da busca do cliente
 	carregarClientes();

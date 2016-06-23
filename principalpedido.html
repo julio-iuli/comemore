@@ -2,23 +2,24 @@
 	<head>
 		<meta charset="UTF-8"/>
 		<title>PRINCIPAL PEDIDOS</title>
-
+		<link rel="stylesheet" href="css/w3.css">
 	</head>
 	<body>
+		<div class="w3-container w3-center">
 		<h1>PEDIDO</h1><br><br>
-		<a href= 'cadastrarpedido.html'>INSERIR NOVO PEDIDO</a><br><br>
-		<a href= 'buscarpedido.html'>BUSCAR PEDIDO</a><br><br>
-		<a href= 'alterarpedido.php'>ALTERAR PEDIDO</a><br><br>
-		<a href= 'excluirpedido.php'>EXCLUIR PEDIDO</a><br><br>
-		<a href= 'principalsistema.html'>VOLTAR</a><br><br>
+		<a class="w3-animate-bottom" href='cadastrarpedido.html'>INSERIR NOVO PEDIDO</a><br><br>
+		<a class="w3-animate-left" href='buscarpedido.html'>BUSCAR PEDIDO</a><br><br>
+		<a class="w3-animate-right" href='alterarpedido.php'>ALTERAR PEDIDO</a><br><br>
+		<a class="w3-animate-left" href='excluirpedido.php'>EXCLUIR PEDIDO</a><br><br>
+		<a class="w3-animate-top" href='principalsistema.html'>VOLTAR</a><br><br>
+		</div>
 	</body>
-	<link rel="stylesheet" href="css/w3.css">
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript">
 		$(function(){
 			$("a").addClass("w3-btn w3-white w3-border w3-border-deep-purple w3-round-large w3-large");
 			$("h1").addClass("w3-container w3-deep-purple w3-animate-zoom w3-xxlarge").attr("align", "center");
-			$("body").attr("align", "center");
+			
 		});
 	</script>
 </html>

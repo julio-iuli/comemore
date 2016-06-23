@@ -19,7 +19,7 @@ function apagar() {
 		<link rel="stylesheet" href="css/w3.css">
 	</head>
 	
-	<body>
+	<body class="w3-container w3-center">
 		
 		<h1>SELECIONAR TEMA</h1>
 		
@@ -29,7 +29,7 @@ function apagar() {
 				<td>Nome do Tema</td>
 				<td>Categoria</td>
 				<td>Preço</td>
-				<td>Comandos</td>
+				<td>Descrição</td>
 			</thead>
 			<tbody>
 				<?php
@@ -52,8 +52,8 @@ function apagar() {
 					echo '<tr>';
 					
 					echo '<td>';
-					echo '<a href="selecionartema.php?action=del&id_tema=' . $row['id_tema'] . '"><img src="excluir.gif" onclick="apagar()" alt="excluir"/></a>';
-					echo '<a href="alterartema.php?&id_tema=' . $row['id_tema'] . '"><img src="edit.png" width="20" height="20" alt="editar"/></a>';
+					echo '<a href="selecionartema.php?action=del&id_tema=' . $row['id_tema'] . '"><i class="fa fa-trash" onclick="apagar()"></i></a>';
+					echo '<a href="alterartema.php?&id_tema=' . $row['id_tema'] . '"><i class="fa fa-pencil-square-o"><i/></a>';
 					
 					echo '</td>';
 
@@ -70,10 +70,12 @@ function apagar() {
 				?>
 			</tbody>
 		</table><br>
-		<center><a href='principaltema.html'>VOLTAR<a></center>
-	
+		<a href='principaltema.html'>VOLTAR</a>
 	</body>
+	
 	<script type="text/javascript" src="js/jquery.js"></script>
+	<link rel="stylesheet" href="css/w3.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
 	<script type="text/javascript">
 		$(function(){
 			$("a").addClass("w3-btn w3-white w3-border w3-border-deep-purple w3-round-large w3-large");

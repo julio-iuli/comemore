@@ -5,8 +5,6 @@ header('Content-Type: text/html; charset=utf-8');
 <html lang="pt-BR">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link rel="stylesheet" href="css/w3.css">
-		<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<title>CATEGORIAS</title>
 	</head>
@@ -78,6 +76,8 @@ header('Content-Type: text/html; charset=utf-8');
 		</table>
 		
 	</body>
+	<link rel="stylesheet" href="css/w3.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
 	<script>
 		function apagar() {
 			var txt;
@@ -113,4 +113,3 @@ header('Content-Type: text/html; charset=utf-8');
 		});
 	</script>
 		
-	</script>

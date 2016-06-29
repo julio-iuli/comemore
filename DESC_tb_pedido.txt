@@ -1,0 +1,14 @@
+Database: comemore  Table: tb_pedido  Wildcard: %
++-------------------------------+-------------+-----------------+------+-----+---------+----------------+---------------------------------+---------+
+| Field                         | Type        | Collation       | Null | Key | Default | Extra          | Privileges                      | Comment |
++-------------------------------+-------------+-----------------+------+-----+---------+----------------+---------------------------------+---------+
+| id_pedido                     | int(11)     |                 | NO   | PRI |         | auto_increment | select,insert,update,references |         |
+| ds_data_pedido                | date        |                 | YES  |     |         |                | select,insert,update,references |         |
+| ds_data_entrega               | datetime    |                 | NO   |     |         |                | select,insert,update,references |         |
+| ds_obs_pedido                 | text        | utf8_general_ci | YES  |     |         |                | select,insert,update,references |         |
+| ds_end_complemento            | varchar(20) | utf8_general_ci | NO   |     |         |                | select,insert,update,references |         |
+| tb_cliente_id_cliente         | int(11)     |                 | NO   | MUL |         |                | select,insert,update,references |         |
+| tb_funcionario_id_funcionario | int(11)     |                 | NO   | MUL |         |                | select,insert,update,references |         |
+| tb_logradouro_id_logradouro   | int(11)     |                 | NO   | MUL |         |                | select,insert,update,references |         |
+| tb_tema_id_tema               | int(11)     |                 | NO   | MUL |         |                | select,insert,update,references |         |
++-------------------------------+-------------+-----------------+------+-----+---------+----------------+---------------------------------+---------+

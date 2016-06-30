@@ -14,7 +14,9 @@
                 left : '',
                 center: 'title, prev, today, next',
                 right: ''
-            }
+            },
+            hiddenDays: [1],
+            fixedWeekCount: false
         });
     });
 </script>
@@ -24,4 +26,10 @@
     <a href='principalsistema.html'>VOLTAR</a>
 </body>
 
-<!-- !é esse que tais a mexer né-->
+<!-- 
+A API, por default, trabalha com horário também. Pode-se configurar o horário
+comercial conforme o escopo do negócio. (businessHours)
+No banco de dados, a entrega é datetime. Sendo assim, ver como poderia ficar
+essa informação da API. Há conflito se se marcar dois compromissos no mesmo 
+horário?
+-->

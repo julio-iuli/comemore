@@ -6,16 +6,21 @@
 <script src='fullcalendar-2.8.0/lib/moment.min.js'></script>
 <script src='fullcalendar-2.8.0/lib/jquery.min.js'></script>
 <script src='fullcalendar-2.8.0/fullcalendar.min.js'></script>
+<script src='fullcalendar-2.8.0/lang/pt-br.js'></script>
 <script type="text/javascript">
     $(document).ready(function(){
-        $('#julio_cal').fullCalendar({
-            
+        $('#cal').fullCalendar({
+            header: {
+                left : '',
+                center: 'title, prev, today, next',
+                right: ''
+            }
         });
     });
 </script>
 </head>
 <body>
-    <div id='julio_cal'></div>
+    <div id='cal'></div>
     <a href='principalsistema.html'>VOLTAR</a>
 </body>
 
